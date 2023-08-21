@@ -1,0 +1,23 @@
+{
+    "port": 8081,
+    "token": "test",
+    "factions": {
+        "weapon": {
+            "title": "Weapon Corp.",
+            "errorlog": "1141494568769036470",
+            "guild": "975469293728849920",
+            "invoices": [
+                "975485212609884200"
+            ],
+            "crafting": "975483118150647838",
+            "shop": "981614968153710602"
+        }
+    },
+    "database": {
+        "host": "127.0.0.1",
+        "port": 3306,
+        "username": "root",
+        "password": "",
+        "database": "test"
+    }
+}
