@@ -5,6 +5,7 @@ import {
     factionPropertyPost,
 } from "../controller/factionProperty";
 import bodyParser from "body-parser";
+import auth from "../controller/auth";
 
 const router = express.Router();
 
@@ -17,5 +18,7 @@ router.get("/api/factions", factions);
 router.get("/api/faction/:faction/:property", factionPropertyGet);
 
 router.post("/api/faction/:faction/:property", factionPropertyPost);
+
+router.get("/api/auth", auth);
 
 export = router;

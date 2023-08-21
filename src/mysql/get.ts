@@ -15,3 +15,17 @@ export async function getDataByFaction(table: string, faction: string) {
     });
     return p;
 }
+
+export async function getUserByAuthKey(key: string) {
+    let p = new Promise((res, rej) => {
+        mysql.query(
+            `SELECT * FROM \`users\` WHERE \`auth_key\` = ?`,
+            [key],
+            (err, result: any) => {
+                if (err) rej(err);
+                else res(result ? result[0] : null);
+            }
+        );
+    });
+    return p;
+}

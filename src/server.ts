@@ -3,12 +3,19 @@ import logger from "./utils/logger";
 import config from "../config.json";
 import router from "./routes/router";
 import bodyParser from "body-parser";
+import cors from "cors";
 
 export const possibleProperties = ["invoices", "crafting", "shop"];
 const port = config.port || 8080;
 const httpServer = app();
 
 httpServer.use(bodyParser.json());
+
+httpServer.use(
+    cors({
+        origin: "*",
+    })
+);
 
 httpServer.use("/", router);
 
