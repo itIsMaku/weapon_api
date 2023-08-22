@@ -12,7 +12,10 @@ export async function insertData(table: string, faction: string, data: any) {
         let target = data.target;
         let targetId = data.target_id;
         let description = data.description;
-        let date = data.date || new Date();
+        let date =
+            data.date ||
+            new Date().toISOString().slice(0, 19).replace("T", " ");
+
         p = new Promise((res, rej) => {
             mysql.query(
                 "INSERT INTO `invoices` (`faction`, `employee`, `employee_id`, `price`, `target`, `target_id`, `description`, `date`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
@@ -40,7 +43,10 @@ export async function insertData(table: string, faction: string, data: any) {
         let item = data.item;
         let weapon_pieces = data.weapon_pieces;
         let price = data.price;
-        let date = data.date || new Date();
+        let date =
+            data.date ||
+            new Date().toISOString().slice(0, 19).replace("T", " ");
+
         p = new Promise((res, rej) => {
             mysql.query(
                 "INSERT INTO `crafting` (`faction`, `ic_name`, `ooc_name`, `charid`, `steam_hex`, `item`, `weapon_pieces`, `price`, `date`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
@@ -68,7 +74,10 @@ export async function insertData(table: string, faction: string, data: any) {
         let item = data.item;
         let price = data.price;
         let count = data.count;
-        let date = data.date || new Date();
+        let date =
+            data.date ||
+            new Date().toISOString().slice(0, 19).replace("T", " ");
+
         p = new Promise((res, rej) => {
             mysql.query(
                 "INSERT INTO `shop` (`faction`, `ic_name`, `ooc_name`, `charid`, `item`, `price`, `count`, `date`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
